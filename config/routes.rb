@@ -3,7 +3,11 @@ Freepencils::Application.routes.draw do
 
   resources :answer_options
 
-  resources :questions
+  resources :questions do 
+    collection do 
+      post 'check_answer'
+    end
+  end 
   
    root :to => "home#index"
 

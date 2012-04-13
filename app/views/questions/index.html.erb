@@ -1,12 +1,19 @@
 <%= render "user/user_status" %>
 
-<%= form_tag(:controller => "questions", :action => "check_answer", :method => "post") do %>
+<%= form_tag("/questions/check_answer", :method => "post") do %>
 
-  <%= @question.text %>
+  <div><%= @res %></div>
+
+  <div><%= @question.text %></div>
   
-  <% for option in @question.answer_option do %>
-    <%= radio_button_tag option.text, option.position %>
+  <div>
+  <% for option in @question.answer_options do %>
+    <div><%= option.text %>
+         <%= radio_button_tag 'answer', option.position %></div>
   <% end %>
+  
+  <%= hidden_field_tag "question", @question.id %>
 
   <%= submit_tag("Submit") %>
+  </div>
 <% end %>

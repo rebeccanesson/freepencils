@@ -3,10 +3,14 @@ class Question < ActiveRecord::Base
   
   has_many :answer_options
   
-  def next_question(user)
+  def self.next_question(user)
     q = Question.find(:first, :conditions => ["difficulty = ?", user.difficulty_level])
     q = Question.find(:first) if not q
     q
+  end
+  
+  def check_answer(answer) 
+    return answer == answer_index
   end
 
 end
