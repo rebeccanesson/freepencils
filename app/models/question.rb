@@ -6,7 +6,7 @@ class Question < ActiveRecord::Base
   def self.next_question(user)
     # q = Question.find(:first, :conditions => ["difficulty = ?", user.difficulty_level])
     # q = Question.find(:first) if not q
-    qs = Question.all
+    qs = Question.all.reverse
     q = qs[rand(qs.length)]
     q
   end
