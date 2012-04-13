@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
       @current_user.pencil_count = 0
       @current_user.save
     end
+    if @current_user && !@current_user.difficulty_level
+      @current_user.difficulty_level = 1
+      @current_user.save
+    end
   end
   
 end

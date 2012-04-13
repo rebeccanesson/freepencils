@@ -1,1 +1,12 @@
 <%= render "user/user_status" %>
+
+<%= form_tag(:controller => "questions", :action => "check_answer", :method => "post") do %>
+
+  <%= @question.text %>
+  
+  <% for option in @question.answer_option do %>
+    <%= radio_button_tag option.text, option.position %>
+  <% end %>
+
+  <%= submit_tag("Submit") %>
+<% end %>
