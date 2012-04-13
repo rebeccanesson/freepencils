@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   
   def set_current_user
     @current_user = current_user
-    if !@current_user.pencil_count
+    if @current_user && !@current_user.pencil_count
       @current_user.pencil_count = 0
       @current_user.save
     end

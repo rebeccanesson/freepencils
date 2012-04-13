@@ -9,6 +9,7 @@ gem 'rails', '3.2.3'
 gem 'json'
 gem 'devise'
 gem "twitter-bootstrap-rails"
+gem "acts_as_list"
 
 # Gems used only for assets and not required
 # in production environments by default.
