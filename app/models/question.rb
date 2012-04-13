@@ -4,8 +4,10 @@ class Question < ActiveRecord::Base
   has_many :answer_options
   
   def self.next_question(user)
-    q = Question.find(:first, :conditions => ["difficulty = ?", user.difficulty_level])
-    q = Question.find(:first) if not q
+    # q = Question.find(:first, :conditions => ["difficulty = ?", user.difficulty_level])
+    # q = Question.find(:first) if not q
+    qs = Questions.all
+    q = qs[rand(qs.length)]
     q
   end
   
